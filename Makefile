@@ -31,12 +31,11 @@ DEP_EARLY_PLUGINS = ci.erlang.mk
 AUTO_CI_OTP ?= OTP-LATEST-27+
 AUTO_CI_WINDOWS ?= OTP-LATEST-27+
 
-# OTP-30 deprecates erlang:exit/2; pinned rebar3 3.28.0 builds with
-# warnings_as_errors and aborts while bootstrapping test deps.
-# Temporary fork until upstream silences or migrates to exit_signal/2.
+# OTP-30 deprecates erlang:exit/2; pinned rebar3 3.28.0 fails bootstrap.
+# Temporary fork migrates signal sends to exit_signal/2 (OTP 29+).
 # https://github.com/erlang/otp/issues/11722
 REBAR3_GIT = https://github.com/rai200890/rebar3
-REBAR3_COMMIT = 15a8b11d5dee3e20f32481601da633252359e3c4
+REBAR3_COMMIT = 74bcd19a5540751b24dd085e5f89753322821d7c
 
 # Hex configuration.
 
